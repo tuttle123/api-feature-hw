@@ -1,26 +1,65 @@
-# Taylor Swift Weather-Based Playlist
-
-This Python script creates a Taylor Swift playlist based on the weather in your city. It determines your mood from the weather and picks songs to match.
-
+# Weather-Based Taylor Swift Playlist Generator
+## Project Description
+This project creates a unique Taylor Swift playlist based on the current weather in a specified city. It combines data from two APIs:
+1. OpenWeatherMap API: To fetch current weather data for a given city.
+2. Spotify API: To access Taylor Swift's discography and create personalized playlists.
+The application determines a "mood" based on the weather conditions and selects Taylor Swift songs that match this mood. It then creates a Spotify playlist with these songs.
 ## Features
-
-- Get current weather from OpenWeatherMap based on city name.
-- Determine mood based on weather (e.g., happy, calm, melancholic).
-- Fetch Taylor Swift songs from Spotify.
-- Create a Spotify playlist that matches your mood.
-
-### Authorization 
-- Set up the API Keys in Secret.
-- Copy paste the three API keys listed below
-1. SPOTIFY_CLIENT_ID: 4b6ce5d11abd4144beccfb6a632c7081
-2. SPOTIFY_CLIENT_SECRET: beac8b7e6d39487dbae02714e75fb7f2
-3. WEATHER_API_KEY: c4af53a1dcacee2a09eb550cd0dc443b
-
-#### Use Case
-Before the following steps, make sure to set up the API keys.
-1. Enter your city name
-2. Follow the Spotify login link
-3. Authorize the app
-4. Enter the authorization code through the link provided. The code is everything in the url provided after the "=" sign. A sample code is provided below.
-AQA8-iyjlxSXl1wHXRt4ksStxxpyrr66vRs7FmMJjglY6L0moyBGyf6tFR4_uaqfQ_xfhDAtD0zZveuvkYnhTGAIp3gahG7P607w7cin24qVnqabrAXjKL6VWwDPUfkk3Xw8yFI8JUE_jYHIsbo6ImPXmhV-sul_XI5J1qDMpZ16fzuMmjZuJlPnDDIjWX1oSw
-5. A playlist will be created in your Spotify account based on the current weather!
+- Fetches real-time weather data for any city
+- Determines a mood based on weather conditions
+- Selects Taylor Swift songs that match the mood
+- Creates a Spotify playlist with the selected songs
+- Provides links to listen to the created playlist
+## APIs Used
+1. **OpenWeatherMap API**: Chosen for its comprehensive and accurate weather data. It allows us to get current weather conditions for any city worldwide.
+2. **Spotify API**: Selected for its extensive music database and playlist creation capabilities. It provides access to Taylor Swift's complete discography and allows for programmatic playlist creation.
+## Setup Instructions
+### 1. Google Colab Setup
+- Open the provided Google Colab notebook.
+### 2. API Keys Setup
+#### OpenWeatherMap API
+1. Go to [OpenWeatherMap](https://openweathermap.org/) and sign up for a free account.
+2. Once logged in, go to your API keys section and copy your API key.
+#### Spotify API
+1. Go to the [Spotify Developer Dashboard](https://developer.spotify.com/dashboard/) and log in or create an account.
+2. Click "Create An App" and fill in the app details.
+3. In your app's settings, add `https://example.com/callback` as a Redirect URI.
+4. Note down the Client ID and Client Secret.
+### 3. Adding Secrets to Google Colab
+1. In your Google Colab notebook, click on the folder icon on the left sidebar.
+2. Click on the "Secret" tab (key icon).
+3. Add the following secrets:
+   - `WEATHER_API_KEY`: Your OpenWeatherMap API key
+   - `SPOTIFY_CLIENT_ID`: Your Spotify Client ID
+   - `SPOTIFY_CLIENT_SECRET`: Your Spotify Client Secret
+## Usage Instructions
+1. Run the first code cell to install required libraries:
+   ```
+   !pip install requests spotipy
+   ```
+2. Run the main code cell containing the entire script.
+3. When prompted, enter a city name.
+4. The script will display a Spotify authorization URL. Open this URL in a new tab.
+5. Log in to Spotify and authorize the application.
+6. After authorization, you'll be redirected to a page (which may show an error). Copy the entire URL of this page.
+7. Return to the Colab notebook and paste the copied URL when prompted.
+8. The script will create the playlist and provide a link to it on Spotify.
+## Error Handling and Rate Limits
+- The script includes error handling for API requests and authentication processes.
+- It respects the rate limits of both APIs to ensure smooth operation.
+## Future Improvements
+- Implement caching for weather data to reduce API calls
+- Expand the mood-matching algorithm for more nuanced playlist creation
+- Add support for other artists or genres
+## Contributors
+- Shayan Ahmad
+- Ian Chen
+- Jessica Yu
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+openweathermap.orgopenweathermap.org
+Current weather and forecast - OpenWeatherMap
+OpenWeather provides comprehensive weather data services, including current, forecast, and historical
+weather information. Explore a wide range of APIs for solar radiation, road risk assessment, solar energy prediction,
+and more, with global coverage and user-friendly access. Ideal for developers and businesses seeking accurate and
+reliable weather insights.
